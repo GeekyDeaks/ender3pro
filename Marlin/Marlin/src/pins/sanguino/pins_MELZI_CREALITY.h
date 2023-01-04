@@ -63,7 +63,7 @@
 
 #if ENABLED(BLTOUCH)
   #ifndef SERVO0_PIN
-    #define SERVO0_PIN                        27
+    #define SERVO0_PIN                        5 // PB5 MOSI
   #endif
   #if SERVO0_PIN == BEEPER_PIN
     #undef BEEPER_PIN
