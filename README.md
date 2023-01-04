@@ -12,21 +12,10 @@ This is specifically for the V1.1.4 control board.  The firmware was extracted f
 
 Tutorial: https://www.youtube.com/watch?v=eq_ygvHF29I
 Marlin Firmware: https://github.com/MarlinFirmware/Marlin/
+Marlin Configs: https://github.com/MarlinFirmware/Marlin/tree/bugfix-2.1.x/config
 Install vscode
 Install platformio plugin
 Install marlin plugin
-
-
-
-DEPRECTATED:
-
-official creality firmware: https://github.com/Creality3DPrinting/Ender-3
-
-- Install Arduio IDE
-- Install Sanguino Board: Preferences/Additional Board Manger URL
-    https://raw.githubusercontent.com/Lauszus/Sanguino/master/package_lauszus_sanguino_index.json
-- Install U8glib: Tools/Manage Libraries/8Uglib
-
 
 # bltouch install
 
@@ -50,73 +39,17 @@ Ender V1.1.5 ISCP header
 | RESET  |      | GND     | White  |
 
 
-## TH3D / Configuration.h
+    +++ b/Marlin/Marlin/Configuration.h
+    +//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
+    +#define USE_PROBE_FOR_Z_HOMING
+    +#define Z_MIN_PROBE_PIN 7 // Pin 7 is the SCK ISCP
+    +#define BLTOUCH
+    +#define NOZZLE_TO_PROBE_OFFSET { -43, -5, 0 }
+    +#define Z_SAFE_HOMING
+    +//#define SDSUPPORT
 
-    #define BLTOUCH
-
-    // Here is where you set your servo pin. 
-    // PB5 MOSI
-    #define SERVO0_PIN 5
-
-    #define NOZZLE_TO_PROBE_OFFSET { -43, -5, 0 }
-
-    #define Z_MIN_PROBE_ENDSTOP_INVERTING false
-    //#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
-    #define Z_MIN_PROBE_PIN 7 // Pin 7 is the SCK ISCP
-
-
-
-
-
-
-
-
-## Marlin / Configuration.h
-
-
-    #define BLTOUCH
-
-    #define Z_MIN_PROBE_ENDSTOP
-    #define Z_MIN_PROBE_PIN 7 // Pin 7 is the SCK ISCP
-
-
-    #define AUTO_BED_LEVELING_BILINEAR
-
-    #define Z_SAFE_HOMING
-
-    #define X_PROBE_OFFSET_FROM_EXTRUDER -43  // X offset: -left  +right  [of the nozzle]
-    #define Y_PROBE_OFFSET_FROM_EXTRUDER -5  // Y offset: -front +behind [the nozzle]
-    #define Z_PROBE_OFFSET_FROM_EXTRUDER 3  // Z offset: -below +above  [the nozzle]
-
-    // Here is where you set your servo pin. 
-    // PB5 MOSI
-    #define SERVO0_PIN 5
-
-    #define Z_MIN_PROBE_ENDSTOP_INVERTING true
-
-    // Don't use the default Z pin as it has a capacitor on it
-    //#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN 
-
-    #define Z_MIN_PROBE_ENDSTOP
-    #define Z_MIN_PROBE_PIN 7 // Pin 7 is the SCK ISCP
-
-    #define PROBE_MANUALLY // not sure about this one?
-
-    // The size of the print bed
-    #define X_BED_SIZE 235
-    #define Y_BED_SIZE 235
-
-    // Set the boundaries for probing (where the probe can reach).
-    #define LEFT_PROBE_BED_POSITION 10
-    #define RIGHT_PROBE_BED_POSITION 182
-    #define FRONT_PROBE_BED_POSITION 10
-    #define BACK_PROBE_BED_POSITION 220
-
-
-## Configuration_adv.h
-
-    #define BABYSTEP_ZPROBE_OFFSET   // Enable to combine M851 and Babystepping
-
+    +++ b/Marlin/Marlin/src/pins/sanguino/pins_MELZI_CREALITY.h
+    +    #define SERVO0_PIN                        5 // PB5 MOSI
 
 ## References
 
