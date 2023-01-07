@@ -13,9 +13,12 @@ This is specifically for the V1.1.4 control board.  The firmware was extracted f
 Tutorial: https://www.youtube.com/watch?v=eq_ygvHF29I
 Marlin Firmware: https://github.com/MarlinFirmware/Marlin/
 Marlin Configs: https://github.com/MarlinFirmware/Marlin/tree/bugfix-2.1.x/config
-Install vscode
-Install platformio plugin
-Install marlin plugin
+
+- Install vscode
+- Install platformio plugin
+- Install marlin plugin
+- upack Marlin code into Marlin directory (don't overwrite existing files)
+- upack Ender3 marlin configs (don't overwrite existing files)
 
 # bltouch install
 
@@ -38,20 +41,7 @@ Ender V1.1.5 ISCP header
 | SCK    | Blue | MOSI    | Yellow |
 | RESET  |      | GND     | White  |
 
-
-    +++ b/Marlin/Marlin/Configuration.h
-    +//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
-    +#define USE_PROBE_FOR_Z_HOMING
-    +#define Z_MIN_PROBE_PIN 7 // Pin 7 is the SCK ISCP
-    +#define BLTOUCH
-    +#define NOZZLE_TO_PROBE_OFFSET { -43, -5, 0 }
-    +#define Z_SAFE_HOMING
-    +//#define SDSUPPORT
-
-    +++ b/Marlin/Marlin/src/pins/sanguino/pins_MELZI_CREALITY.h
-    +    #define SERVO0_PIN                        5 // PB5 MOSI
-
-## References
+# References
 
 1. generic install https://www.youtube.com/watch?v=eF060dBEnfs
 2. https://teachingtechyt.github.io/upgrades.html#bltouch
