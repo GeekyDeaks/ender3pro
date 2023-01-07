@@ -32,8 +32,15 @@ Looking at the BLTouch connector with the probe at the bottom:
 |-------|-------|----------|-----|----------|
 | White | Black | Yellow   | Red | Blue     |
 
+Due to the capacitor on the Z_MIN port and reluctance to cut into wire 27,
+The ISCP headers are used for the BLtouch control and Z_MIN
 
-Ender V1.1.5 ISCP header
+- PIN 7 (SCK) -> Z_MIN
+- PIN 5 (MOSI) -> SERVO0_PIN (deploy/retract)
+
+It's important to disable the SDSUPPORT to ensure those pins are not reused
+
+Ender V1.1.4 ISCP header
 
 | Inside |      | Outside |        |
 |--------|------|---------|--------|
